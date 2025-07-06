@@ -212,9 +212,7 @@ html, body {
     .section__main-title {
         display: none;
     }
-}Apply to styles.css
-￼
-   @import url("vendors/bootstrap.css");
+}
 
 .section__select {
     display: none;
@@ -323,7 +321,7 @@ html, body {
     color: #333333;
 }
 
-@media (max-width: 768px) {проанализируй весь проект и из index.html вынеси компоненты в отдельную папку src, и создай vite config
+@media (max-width: 768px) {
     .hero-dashboard__subtitle {
         margin: 0.3125rem 0 0 0;
         font-size: .75rem;
@@ -601,6 +599,7 @@ html, body {
 .footer__link:hover {
     color: #000;
 }
+
 
 .footer__copyright {
     margin-left: auto;
