@@ -1,7 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Header } from './components/Header';
+import { Main } from './components/Main';
 
 ReactDOM.createRoot(document.getElementById('app')).render(
-    <App />
-) 
+    <>
+    <Header />
+    <Main />
+    </>
+);

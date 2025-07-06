@@ -1,28 +1,25 @@
-import React, { useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react';
 
-function Event(props) {
-  const ref = useRef()
-  const { onSize, slim, icon, iconLabel, title, subtitle } = props
+export function Event(props) {
+    const ref = useRef();
 
-  useEffect(() => {
-    if (ref.current && onSize) {
-      const width = ref.current.offsetWidth
-      const height = ref.current.offsetHeight
-      onSize({ width, height })
-    }
-  })
+    const { onSize } = props;
 
-  return (
-    <li ref={ref} className={`event${slim ? ' event_slim' : ''}`}>
-      <button className="event__button">
-        <span className={`event__icon event__icon_${icon}`} role="img" aria-label={iconLabel}></span>
-        <h4 className="event__title">{title}</h4>
-        {subtitle && (
-          <span className="event__subtitle">{subtitle}</span>
-        )}
-      </button>
-    </li>
-  )
+    useEffect(() => {
+        const width = ref.current.offsetWidth;
+        const height = ref.current.offsetHeight;
+        if (onSize) {
+            onSize({ width, height });
+        }
+    });
+
+    return <li ref={ref} className={'event' + (props.slim ? ' event_slim' : '')}>
+        <button className="event__button">
+            <span className={`event__icon event__icon_${props.icon}`} role="img" aria-label={props.iconLabel}></span>
+            <h4 className="event__title">{props.title}</h4>
+            {props.subtitle &&
+                <span className="event__subtitle">{props.subtitle}</span>
+            }
+        </button>
+    </li>;
 }
-
-export default Event 
